@@ -17,7 +17,7 @@
     log((needsPatch ? "" : "not ") + "patching html5 drag drop");
 
     if(!needsPatch) {
-        return;
+      return;
     }
 
     if(!config.enableEnterLeave) {
@@ -102,7 +102,7 @@
     },
     synthesizeEnterLeave: function(event) {
       var target = elementFromTouchEvent(this.el,event)
-      if (target != this.lastEnter) {
+      if (target !== this.lastEnter) {
         if (this.lastEnter) {
           this.dispatchLeave(event);
         }
@@ -231,7 +231,7 @@
       evt.dataTransfer = {
         setData: function(type, val) {
           this.dragData[type] = val;
-          if (this.dragDataTypes.indexOf(type) == -1) {
+          if (this.dragDataTypes.indexOf(type) === -1) {
             this.dragDataTypes[this.dragDataTypes.length] = type;
           }
           return val;
@@ -262,7 +262,7 @@
       var transform = this.dragImage.style.transform;
       if (typeof transform !== "undefined") {
         this.dragImageTransform = "";
-        if (transform != "none") {
+        if (transform !== "none") {
           this.dragImageTransform = transform.replace(/translate\(\D*\d+[^,]*,\D*\d+[^,]*\)\s*/g, '');
         }
       }
@@ -270,7 +270,7 @@
       var webkitTransform = this.dragImage.style["-webkit-transform"];
       if (typeof webkitTransform !== "undefined") {
         this.dragImageWebKitTransform = "";
-        if (webkitTransform != "none") {
+        if (webkitTransform !== "none") {
           this.dragImageWebKitTransform = webkitTransform.replace(/translate\(\D*\d+[^,]*,\D*\d+[^,]*\)\s*/g, '');
         }
       }
@@ -289,7 +289,7 @@
         // If draggable isn't explicitly set for anchors, then simulate a click event.
         // Otherwise plain old vanilla links will stop working.
         // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Touch_events#Handling_clicks
-        if (!el.hasAttribute("draggable") && el.tagName.toLowerCase() == "a") {
+        if (!el.hasAttribute("draggable") && el.tagName.toLowerCase() === "a") {
           var clickEvt = document.createEvent("MouseEvents");
           clickEvt.initMouseEvent("click", true, true, el.ownerDocument.defaultView, 1,
             evt.screenX, evt.screenY, evt.clientX, evt.clientY,
@@ -349,7 +349,7 @@
   // duplicateStyle expects dstNode to be a clone of srcNode
   function duplicateStyle(srcNode, dstNode) {
     // Is this node an element?
-    if (srcNode.nodeType == 1) {
+    if (srcNode.nodeType === 1) {
       // Remove any potential conflict attributes
       dstNode.removeAttribute("id");
       dstNode.removeAttribute("class");
